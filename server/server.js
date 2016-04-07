@@ -29,28 +29,16 @@ app.use(express.static(__dirname + "/page/html"));
 
 
 app.get('/getFolders', function(req, res){
-    //res.writeHead(200, {'Content-Type':'text/html'});
+
     res.end(getRespondData());
 });
 
-/*app.get('/getComents', function(req, res){
-    console.log('get');
-    res.writeHead(200, {'Content-Type':'text/html'});
-    res.end(getRespondData());
-});*/
 
 app.post('/saveComment', function(req, res){
     console.log(req.body);
     saveDocument(req.body, function(info){
         res.send(info);
     });
-    
-    /*dataBase.findDocuments(path, function(docs){
-        console.log(docs[0].comment);
-        res.send(docs);
-    });*/
-    
-    //findDocuments();
 });
 
 app.post('/login', function(req, res){
