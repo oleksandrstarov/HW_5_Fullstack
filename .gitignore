@@ -1,1 +1,5 @@
 /node_modules
+/.git
+/.c9
+/data
+mongod
