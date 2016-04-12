@@ -40,6 +40,7 @@ app.get('/getFolders', function(req, res){
 });*/
 
 app.post('/saveComment', function(req, res){
+    console.log(req);
     console.log(req.body);
     saveDocument(req.body, function(info){
         res.send(info);

@@ -32,15 +32,17 @@ module.exports.saveDocumentHandler = function(document, callback){
         var comment = document.comment;
         var user = document.user;
         var collection = db.collection('folders');
+        console.log(document);
         if(comment!== ''){
             collection.updateOne({path:path, user:user}, {path: path, comment:comment, user:user}, {upsert:true}, function(error, count, status){
                 assert.equal(error, null);
-                
+                console.log(count + " " + status);
                 db.close();
                 callback(count);
             });
         }else{
             collection.deleteOne({path:path, user:user}, function(error,result){
+                console.log(result);
                 assert.equal(error, null);
                 db.close();
                 callback(result);
