@@ -13,10 +13,10 @@ module.exports.startServer = function (){
         console.log('server running at http://'+hostname+":"+port+"/"); 
     });
 };
+OPENSHIFT_NODEJS_IP 
 
-
-var hostname = this.serverSettings.hostname || process.env.IP || 'localhost';
-var port = this.serverSettings.port || process.env.PORT || 3000;
+var hostname = this.serverSettings.hostname || process.env.IP || process.env.OPENSHIFT_NODEJS_IP  || 'localhost';
+var port = this.serverSettings.port || process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT ||  3000;
 
 
 
